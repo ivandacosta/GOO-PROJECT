@@ -16,7 +16,7 @@ function Cart() {
   }
 
   return (
-    <div>
+    <div className="Cart">
       {productosCarrito()}
 
       <p>total: {totalPrice()}</p>

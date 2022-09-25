@@ -1,13 +1,16 @@
 import React from "react";
 import { useCartContext } from "../../context/CartContext";
 
+//Style
+import "./ItemCart.css";
+
 const ItemCart = ({ product }) => {
   const { removeProduct } = useCartContext();
   return (
     <div className="ItemCart">
       <img src={product.images} alt="producto" />
       <div>
-        <p>{product.name}</p>
+        <h5>{product.name}</h5>
         <p>cantidad: {product.quantity}</p>
         <p>precio u.:{product.price}</p>
         <p>subtotal: {product.quantity * product.price}</p>

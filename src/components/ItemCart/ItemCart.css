@@ -1,0 +1,11 @@
+.ItemCart {
+  margin: auto;
+  box-shadow: 5px 5px 5px 5px rgba(71, 71, 71, 0.644);
+  width: 300px;
+  height: 450px;
+  color: #000;
+}
+
+.ItemCart img {
+  width: 200px;
+}

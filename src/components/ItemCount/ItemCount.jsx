@@ -2,9 +2,9 @@ import React from "react";
 
 import "./ItemCount.css";
 
-const ItemCount = ({ initial, stock, onAdd, Counter, SetCounter }) => {
+const ItemCount = ({ initial, product, onAdd, Counter, SetCounter }) => {
   const CountUp = () => {
-    if (Counter < stock) {
+    if (Counter < product.stock) {
       SetCounter(Counter + 1);
     }
   };
@@ -24,7 +24,13 @@ const ItemCount = ({ initial, stock, onAdd, Counter, SetCounter }) => {
       </div>
 
       <div className="AddToCart">
-        <button onClick={onAdd}>Add to cart</button>
+        <button
+          onClick={() => {
+            onAdd(product, Counter);
+          }}
+        >
+          Add to cart
+        </button>
       </div>
     </div>
   );

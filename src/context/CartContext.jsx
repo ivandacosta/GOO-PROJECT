@@ -14,15 +14,18 @@ const CartProvider = ({ children }) => {
   };
 
   const addProduct = (item, quantity) => {
-    let newCart;
-    let product = cart.find((product) => product.id === item.id);
-    if (product) {
-      product.quantity += quantity;
-      newCart = [...cart];
-    } else {
-      product = { ...item, quantity: quantity };
-      newCart = { ...cart, product };
+    let newCart = [...cart];
+    if (!newCart.find((product) => product.id === item.id)) {
+      newCart = [...newCart, { ...item, quantity }];
+      SetCart(newCart);
+      return;
     }
+    newCart = newCart.map((product) => {
+      if (product.id === item.id) {
+        return { ...product, quantity: product.quantity + quantity };
+      }
+      return product;
+    });
     SetCart(newCart);
   };
 

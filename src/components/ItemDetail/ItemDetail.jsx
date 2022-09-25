@@ -19,6 +19,7 @@ const ItemDetail = ({ product }) => {
 
   function onAdd(product, quantity) {
     SetCompra(true);
+    console.log(product);
     addProduct(product, quantity);
   }
 
@@ -34,7 +35,7 @@ const ItemDetail = ({ product }) => {
         {!Compra ? (
           <ItemCount
             initial={1}
-            stock={product.stock}
+            product={product}
             onAdd={onAdd}
             Counter={Counter}
             SetCounter={SetCounter}
