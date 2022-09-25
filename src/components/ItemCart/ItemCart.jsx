@@ -5,7 +5,7 @@ import { useCartContext } from "../../context/CartContext";
 import "./ItemCart.css";
 
 const ItemCart = ({ product }) => {
-  const { removeProduct, totalPrice } = useCartContext();
+  const { removeProduct, totalPrice, clearCart } = useCartContext();
   return (
     <div className="ItemCart">
       <img src={product.images} alt="producto" />
@@ -15,7 +15,7 @@ const ItemCart = ({ product }) => {
         <p>precio u.:{product.price}</p>
         <p>subtotal: {product.quantity * product.price}</p>
         <p>total: {totalPrice()}</p>
-        <button onClick={() => removeProduct()}>Eliminar</button>
+        <button onClick={clearCart}>Eliminar</button>
       </div>
     </div>
   );
