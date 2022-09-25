@@ -13,19 +13,9 @@ const CartProvider = ({ children }) => {
     SetCart([]);
   };
 
-  const addProduct = (item, quantity) => {
-    let newCart = [...cart];
-    if (!newCart.find((product) => product.id === item.id)) {
-      newCart = [...newCart, { ...item, quantity }];
-      SetCart(newCart);
-      return;
-    }
-    newCart = newCart.map((product) => {
-      if (product.id === item.id) {
-        return { ...product, quantity: product.quantity + quantity };
-      }
-      return product;
-    });
+  const addProduct = (item, newQuantity) => {
+    const newCart = cart.filter((prod) => prod.id !== item.id);
+    newCart.push({ ...item, quantity: newQuantity });
     SetCart(newCart);
   };
 
