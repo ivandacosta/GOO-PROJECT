@@ -6,10 +6,14 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 //style
 import "./Header.css";
-
-//
+//Components
 import Nav from "../Navigation/Nav";
-function Header() {
+
+//importcartcontext
+import { useCartContext } from "../../context/CartContext";
+
+function Header({ product, quantity }) {
+  const { totalProducts } = useCartContext();
   return (
     <header>
       <div className="Logo">
@@ -22,7 +26,7 @@ function Header() {
 
       <div className="Cart">
         <p>
-          <FontAwesomeIcon icon={faCartShopping} /> 0
+          <FontAwesomeIcon icon={faCartShopping} /> {totalProducts()}
         </p>
       </div>
     </header>
