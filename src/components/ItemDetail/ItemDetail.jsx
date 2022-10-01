@@ -12,7 +12,7 @@ import ItemCount from "../ItemCount/ItemCount";
 import { useCartContext } from "../../context/CartContext";
 
 const ItemDetail = ({ product }) => {
-  const [Counter, SetCounter] = useState([1]);
+  const [Counter, SetCounter] = useState(1);
   const [Compra, SetCompra] = useState(false);
 
   const { addProduct } = useCartContext();
